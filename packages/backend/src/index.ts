@@ -23,7 +23,7 @@ import { TaskScheduler } from '@backstage/backend-tasks';
 import { Config } from '@backstage/config';
 import app from './plugins/app';
 import auth from './plugins/auth';
-import catalog from './plugins/catalog';
+import catalog from './plugins/catalog-github';
 import scaffolder from './plugins/scaffolder';
 import proxy from './plugins/proxy';
 import techdocs from './plugins/techdocs';
