@@ -256,6 +256,11 @@ const createCustomThemeOverrides = (
       indicator: {
         transition: 'none',
       },
+      scroller: {
+        borderColor: 'tomato',
+        backgroundColor: 'lightgrey',
+        borderRadius: '10px',
+      },
     },
     MuiTypography: {
       button: {
