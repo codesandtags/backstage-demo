@@ -12,21 +12,20 @@ export default async function createPlugin(
   // Default configuration catalog
   const builder = await CatalogBuilder.create(env);
 
-  // Setup Github entity provider
-  builder.addEntityProvider(
-    GithubEntityProvider.fromConfig(env.config, {
-      logger: env.logger,
-      // optional: alternatively, use scheduler with schedule defined in app-config.yaml
-      schedule: env.scheduler.createScheduledTaskRunner({
-        frequency: { minutes: 5 },
-        timeout: { minutes: 3 },
-      }),
-      // optional: alternatively, use schedule
-      scheduler: env.scheduler,
-    }),
-  );
+  console.log('Hola desde Catalog Github');
 
-  builder.addProcessor(new ScaffolderEntitiesProcessor());
+  // Setup Github entity provider
+  // builder.addEntityProvider(
+  //   GithubEntityProvider.fromConfig(env.config, {
+  //     logger: env.logger,
+  //     // optional: alternatively, use schedule
+  //     scheduler: env.scheduler,
+  //   }),
+  // );
+
+  // builder.addProcessor(new ScaffolderEntitiesProcessor());
+  builder.setProcessingIntervalSeconds(240);
+
   const { processingEngine, router } = await builder.build();
 
   // Subscribe to check errors

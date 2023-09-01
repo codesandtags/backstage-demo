@@ -27,16 +27,16 @@ backend:
     credentials: true
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
-  # database:
-  #   client: better-sqlite3
-  #   connection: ':memory:'
   database:
-    client: pg
-    connection:
-      host: ${POSTGRES_HOST}
-      port: ${POSTGRES_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
+    client: better-sqlite3
+    connection: ':memory:'
+  # database:
+  #   client: pg
+  #   connection:
+  #     host: ${POSTGRES_HOST}
+  #     port: ${POSTGRES_PORT}
+  #     user: ${POSTGRES_USER}
+  #     password: ${POSTGRES_PASSWORD}
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
 integrations:
@@ -80,22 +80,23 @@ catalog:
   providers:
     github:
       # the provider ID can be any camelCase string
+      # For further details: https://backstage.io/docs/integrations/github/discovery
       providerId:
-        organization: 'codesandtags' # string
+        organization: 'ricteam' # string
         catalogPath: '/catalog-info.yaml' # string
         filters:
           branch: 'main' # string
           repository: '.*' # Regex
         schedule: # optional; same options as in TaskScheduleDefinition
           # supports cron, ISO duration, "human duration" as used in code
-          frequency: { minutes: 30 }
+          frequency: { minutes: 5 }
           # supports ISO duration, "human duration" as used in code
           timeout: { minutes: 3 }
   import:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+    - allow: [Component, System, API, Resource, Location, Domain]
   locations:
     # # Local example data, file locations are relative to the backend process, typically `packages/backend`
     - type: file
@@ -114,11 +115,11 @@ catalog:
     #     - allow: [User, Group]
 
     # ## Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/codesandtags/backstage-huge-catalog/blob/main/centralized/all-entities.yaml
-    #   rules:
-    #     - allow:
-    #         [Group, User, Domain, System, Component, API, Resource, Location]
+    - type: url
+      target: https://github.com/codesandtags/backstage-huge-catalog/blob/main/centralized/all-entities.yaml
+      rules:
+        - allow:
+            [Group, User, Domain, System, Component, API, Resource, Location]
 
     ## Uncomment these lines to add an example org
     # - type: url

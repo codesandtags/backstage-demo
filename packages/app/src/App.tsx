@@ -34,6 +34,10 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
+import { UnifiedThemeProvider, themes } from '@backstage/theme';
+import { codesandtagsTheme } from './theme';
+import { CssBaseline } from '@material-ui/core';
+
 const app = createApp({
   apis,
   bindRoutes({ bind }) {
@@ -53,6 +57,35 @@ const app = createApp({
       catalogIndex: catalogPlugin.routes.catalogIndex,
     });
   },
+  themes: [
+    {
+      id: 'light',
+      title: 'Light',
+      variant: 'light',
+      Provider: ({ children }) => (
+        <UnifiedThemeProvider theme={themes.light} children={children} />
+      ),
+    },
+    {
+      id: 'dark',
+      title: 'Dark',
+      variant: 'dark',
+      Provider: ({ children }) => (
+        <UnifiedThemeProvider theme={themes.dark} children={children} />
+      ),
+    },
+    {
+      id: 'codesandtags',
+      title: 'Codes and Tags',
+      variant: 'light',
+      Provider: ({ children }) => (
+        <UnifiedThemeProvider theme={codesandtagsTheme} noCssBaseline>
+          <CssBaseline />
+          {children}
+        </UnifiedThemeProvider>
+      ),
+    },
+  ],
 });
 
 const routes = (
