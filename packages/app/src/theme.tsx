@@ -267,6 +267,27 @@ const createCustomThemeOverrides = (
         textTransform: 'none',
       },
     },
+    MuiTable: {
+      root: {
+        border: '20px solid red',
+        position: 'relative',
+        '::after': {
+          content: 'A',
+          border: '20px solid black',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          borderRadius: '20px',
+        },
+      },
+    },
+    MuiTableRow: {
+      selected: {
+        backgroundColor: '#E5E5E5',
+      },
+    },
   };
 };
 
