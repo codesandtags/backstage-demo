@@ -16,3 +16,5 @@ You can find the [full documentation](https://backstage.io/docs/getting-started/
 ```sh
 yarn backstage-cli versions:bump
 ```
+
+Also follow this [Backstage upgrade helper](https://backstage.github.io/upgrade-helper/?from=1.17.0&to=1.19.0) which shows other significant steps for update.
