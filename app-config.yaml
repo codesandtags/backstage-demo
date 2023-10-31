@@ -1,9 +1,9 @@
 app:
-  title: Scaffolded Backstage App
+  title: My Backstage Catalog
   baseUrl: http://localhost:3000
 
 organization:
-  name: My Company
+  name: codesandtags
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
