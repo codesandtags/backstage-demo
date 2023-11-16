@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: all.yaml
+spec:
+  type: file
+  targets:
+    - ./org.yaml
+    - ./edwin.torres.yaml

@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: edwin.torres
+spec:
+  profile:
+    email: etorres.net@gmail.com
+    picture: https://www.codesandtags.io/what-i-use/public/img/bg-header.png
+  memberOf:
+    - codesandtags

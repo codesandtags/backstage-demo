@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: codesandtags
+  description: Codes and Tags organization
+spec:
+  type: organization
+  profile:
+    displayName: codesandtags
+    email: codesandtags@gmail.com
+    picture: https://www.codesandtags.io/images/logo.png
+  children: []
+  members: []
